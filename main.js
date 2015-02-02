@@ -13,18 +13,29 @@ $('#buy').on('click', function() {
 
 function runQuoteAndPrint() {
   $.get(newUrl, function(res) {
-    var symbol = res.Symbol;
-    var price = res.LastPrice;
-    var change = res.Change;
-    var percentChange = res.ChangePercent;
+    createTableData();
     console.log(price, symbol, change, percentChange);
   });
 }
 
-var $tdSymbol = $('<td>' + symbol + '</td>');
-var $tdPrice = $('<td>' + price + '</td>');
-var $tdChange = $('<td>' + change + '</td>');
-var $tdChangePercent = $('<td>' + changePercent + '</td>');
+function createTableData(){
+  var symbol = res.Symbol;
+  var price = res.LastPrice;
+  var change = res.Change;
+  var percentChange = res.ChangePercent;
+  
+  var $tr = $('<tr></tr>')
+  var $tdName = $('<td>' + name + '</td>');
+  $tr.append($tdName);
+  var $tdPrice = $('<td>' + price + '</td>');
+  $tr.append($tdPrice);
+  var $tdChange = $('<td>' + change + '</td>');
+  $tr.append($tdChange);
+  var $tdChangePercent = $('<td>' + changePercent + '</td>');
+  $tr.append($ChangePercent);
+  $('#table').append($tr);
+}
+
 
 
 
