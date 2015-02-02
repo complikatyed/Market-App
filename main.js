@@ -1,4 +1,3 @@
-
 (function () {
 
   'use strict';
@@ -38,6 +37,8 @@
     $tr.append($tdChange);
     var $tdChangePercent = $('<td>' + percentChange + '</td>');
     $tr.append($tdChangePercent);
+    var $tdButton = $('<button>Clear</button>');
+    $tr.append($tdButton);
     $('#table').append($tr);
   }
 }());
