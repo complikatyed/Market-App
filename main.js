@@ -21,6 +21,10 @@ function runQuoteAndPrint() {
   });
 }
 
+var $tdSymbol = $('<td>' + symbol + '</td>');
+var $tdPrice = $('<td>' + price + '</td>');
+var $tdChange = $('<td>' + change + '</td>');
+var $tdChangePercent = $('<td>' + changePercent + '</td>');
 
 
 
