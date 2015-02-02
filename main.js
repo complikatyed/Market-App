@@ -37,8 +37,11 @@
     $tr.append($tdChange);
     var $tdChangePercent = $('<td>' + percentChange + '</td>');
     $tr.append($tdChangePercent);
-    var $tdButton = $('<button>Clear</button>');
+    var $tdButton = $('<button id="remove">Remove</button>');
     $tr.append($tdButton);
+    $('#remove').on('click', function() {
+      $(this).closest("tr").remove();
+    })
     $('#table').append($tr);
   }
 }());
