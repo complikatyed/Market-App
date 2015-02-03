@@ -1,7 +1,8 @@
 var baseUrl = 'http://dev.markitondemand.com/Api/v2/Quote/jsonp?symbol=',
   $symbol,
   newUrl,
-  $quantity;
+  $quantity,
+  total = 0;
 
 $('#buy').on('click', function() {
   event.preventDefault();
@@ -22,9 +23,9 @@ var idCounter = 1;
 
 function getData(res) {
   var name = res.Name;
-  var price = res.LastPrice;
+  var price = res.LastPrice.toFixed(2);
   var dayChange = '$ ' + (res.Change).toFixed(2);
-  var percentChange = Math.round((res.ChangePercent) * 100) + ' %';
+  var percentChange = res.ChangePercent.toFixed(2) + ' %';
 
   var stock;
   this.stocks = [];
@@ -60,15 +61,13 @@ function getData(res) {
     })
     $('#table').append($tr);
 
-    var total = 0;
     $(".price").each(function() {
       var value = $(this).text();
       if(!isNaN(value) && value.length != 0) {
-      total += parseFloat(value);
+      total += parseFloat(value) * $quantity;
       }
     $("p").text("Total: $" + total.toFixed(2));
     });
-
 // Need event listener here to recalcuate the total if rows are removed...
   }
 }
