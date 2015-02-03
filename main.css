@@ -1,3 +1,7 @@
+body {
+  background-color: tomato;
+}
+
 th, td {
   text-align: center;
 }

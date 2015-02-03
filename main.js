@@ -4,6 +4,7 @@ var baseUrl = 'http://dev.markitondemand.com/Api/v2/Quote/jsonp?symbol=',
   $quantity;
 
 $('#buy').on('click', function() {
+  event.preventDefault();
   $symbol = $('#symbol').val();
   $symbol += '&callback=?';
   newUrl = baseUrl + $symbol;
