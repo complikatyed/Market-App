@@ -23,9 +23,9 @@
 
   function createTableData(res) {
     var name = res.Name;
-    var price = res.LastPrice;
+    var price = '$' + res.LastPrice.toFixed(2);
     var change = '$ ' + (res.Change).toFixed(2);
-    var percentChange = Math.round((res.ChangePercent) * 100) + ' %';
+    var percentChange = res.ChangePercent.toFixed(2) + ' %';
 
     var $tr = $('<tr></tr>');
     var $tdName = $('<td>' + name + '</td>');
