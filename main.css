@@ -1,8 +1,14 @@
 th, td {
+  text-align: center;
   padding: 10px;
   border: 1px solid;
 }
 
 table {
  margin-top: 10px;
+ text-align: center;
+}
+
+.container {
+  text-align: center;
 }
