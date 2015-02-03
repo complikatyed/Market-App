@@ -1,7 +1,9 @@
 var baseUrl = 'http://dev.markitondemand.com/Api/v2/Quote/jsonp?symbol=',
     $symbol,
     newUrl,
-    total = 0;
+    total = 0,
+    firebaseUrl = 'https://c8marketapp.firebaseio.com/stocks.json',
+    $tr = $('<tr></tr>');
 
 $('#buy').on('click', function() {
   event.preventDefault();
@@ -33,13 +35,15 @@ function getData(res) {
   createTableData(stock);
 
   function createTableData(stock){
-    var $tr = $('<tr>"stock.id"</tr>');
+    $tr;
     var $tdName = $('<td>' + stock.companyName + '</td>');
     $tr.append($tdName);
-    var $tdPrice = $('<td class="price">' + ((stock.purchPrice * 100) / 100).toFixed(2) + '</td>');
-    $tr.append($tdPrice);
+    var $tdPurchPrice = $('<td class="price">' + ((stock.purchPrice * 100) / 100).toFixed(2) + '</td>');
+    $tr.append($tdPurchPrice);
     var $tdQuantity = $('<td class="quantity">' + stock.quantity + '</td>');
     $tr.append($tdQuantity);
+    var $tdPurchPrice = $('<td class="price">' + ((stock.purchPrice * 100) / 100).toFixed(2) + '</td>');
+    $tr.append($tdPurchPrice);
     var $tdChange = $('<td>' + ((stock.dayChange * 100) / 100).toFixed(2) + '</td>');
     $tr.append($tdChange);
     var $tdChangePercent = $('<td>' + stock.percentChange.toFixed(2) + '%' + '</td>');
@@ -50,6 +54,8 @@ function getData(res) {
 
     total += parseFloat(stock.quantity) * parseFloat(stock.purchPrice);
     $("p").text("Total: $" + total.toFixed(2));
+    jsonifiedData = JSON.stringify(stock);
+    $.post(firebaseUrl, jsonifiedData);
   }
 }
 
