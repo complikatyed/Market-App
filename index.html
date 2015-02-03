@@ -6,14 +6,16 @@
   <link rel="stylesheet" href="main.css">
 </head>
 <body>
-  <div class="container">
-    <div class="twelve comluns">
+  <div class = "container">
+    <div>
       <h1>Stocks Here, Get Your Stocks!</h1>
-      <input type="text" id="symbol" placeholder="Symbol">
-      <input type="text" id="quantity" placeholder="Quantity">
-      <button id="buy">Buy</button>
+      <form class="form-inline">
+        <input type="text" id="symbol" placeholder="Symbol">
+        <input type="text" id="quantity" placeholder="Quantity">
+        <button id="buy">Buy</button>
+      </form>
       <div>
-        <table id="table" class="table-striped">
+        <table id="table" class="table table-striped table-bordered">
           <th>Company</th>
           <th>Price</th>
           <th>Quantity</th>

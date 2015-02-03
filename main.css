@@ -1,7 +1,5 @@
 th, td {
   text-align: center;
-  padding: 10px;
-  border: 1px solid;
 }
 
 table {
@@ -11,4 +9,8 @@ table {
 
 .container {
   text-align: center;
+}
+
+.remove {
+  margin-top: 7px;
 }

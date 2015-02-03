@@ -7,6 +7,7 @@
       $quantity;
 
   $('#buy').on('click', function() {
+    event.preventDefault();
     $symbol = $('#symbol').val();
     $symbol += '&callback=?';
     newUrl = baseUrl + $symbol;
